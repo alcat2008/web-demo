@@ -16,6 +16,7 @@
     "html5shiv": "3.7.3",
     "jquery": "1.11.1",
     "respond": "1.4.2",
-    "es6-promise": "^3.2.1"
+    "es6-promise": "^3.2.1",
+    "unslider": "^2.0.3"
   }
 }

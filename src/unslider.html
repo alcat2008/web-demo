@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>unslider.html</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" type="text/css" href="../bower_components/unslider/dist/css/unslider.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/unslider/dist/css/unslider-dots.css">
+
+    <style type="text/css">
+    body {
+      padding-top: 50px;
+    }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="banner">
+        <ul>
+          <li>
+            <img src="../resources/image/u10.png" style="width:100%" alt="First slide">
+          </li>
+          <li>
+            <img src="../resources/image/u14.png" style="width:100%" alt="Second slide">
+          </li>
+          <li>
+            <img src="../resources/image/u22.png" style="width:100%" alt="Third slide">
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../bower_components/unslider/dist/js/unslider-min.js"></script>
+
+    <script type="text/javascript">
+    // $(function () {
+    //   $('.banner').unslider({
+    //   	speed: 500,               //  The speed to animate each slide (in milliseconds)
+    //   	delay: 3000,              //  The delay between slide animations (in milliseconds)
+    //   	complete: function() {},  //  A function that gets called after every slide animation
+    //   	keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+    //     nav: true,
+    //     arrows: false,
+    //   	dots: false,               //  Display dot navigation
+    //   	fluid: true              //  Support responsive design. May break non-responsive designs
+    //   });
+    //
+    // });
+    if (window.chrome) {
+      $('.banner li').css('background-size', '100% 100%');
+    }
+
+    $('.banner').unslider({
+      arrows: true,
+      fluid: true,
+      dots: true
+    });
+
+    //  Find any element starting with a # in the URL
+    //  And listen to any click events it fires
+    $('a[href^="#"]').click(function() {
+      //  Find the target element
+      var target = $($(this).attr('href'));
+
+      //  And get its position
+      var pos = target.offset(); // fallback to scrolling to top || {left: 0, top: 0};
+
+      //  jQuery will return false if there's no element
+      //  and your code will throw errors if it tries to do .offset().left;
+      if (pos) {
+        //  Scroll the page
+        $('html, body').animate({
+          scrollTop: pos.top,
+          scrollLeft: pos.left
+        }, 1000);
+      }
+
+      //  Don't let them visit the url, we'll scroll you there
+      return false;
+    });
+    </script>
+  </body>
+</html>

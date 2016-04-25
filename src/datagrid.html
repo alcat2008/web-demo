@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang ="en" class="fuelux">
+  <head>
+    <title>datagrid.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!-- FuelUX theme -->
+    <link rel="stylesheet" type="text/css" href="resources/css/fuelux.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/fuelux-responsive.css">
+
+  </head>
+  
+  <body>
+    
+    
+    <!-- DATAGRID -->
+    <table id="MyGrid" class="table table-bordered datagrid">
+        <thead>
+        <tr>
+            <th>
+                <span class="datagrid-header-title">Geographic Data Sample</span>
+
+                <div class="datagrid-header-left">
+                    <div class="input-append search datagrid-search">
+                        <input type="text" class="input-medium" placeholder="Search">
+                        <button class="btn"><i class="icon-search"></i></button>
+                    </div>
+                </div>
+                <div class="datagrid-header-right">
+                    <div class="select filter" data-resize="auto">
+                        <button data-toggle="dropdown" class="btn dropdown-toggle">
+                            <span class="dropdown-label"></span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li data-value="all" data-selected="true"><a href="#">All</a></li>
+                            <li data-value="lt5m"><a href="#">Population &lt; 5M</a></li>
+                            <li data-value="gte5m"><a href="#">Population &gt;= 5M</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>
+                <div class="datagrid-footer-left" style="display:none;">
+                    <div class="grid-controls">
+                        <span>
+                            <span class="grid-start"></span> -
+                            <span class="grid-end"></span> of
+                            <span class="grid-count"></span>
+                        </span>
+                        <div class="select grid-pagesize" data-resize="auto">
+                            <button data-toggle="dropdown" class="btn dropdown-toggle">
+                                <span class="dropdown-label"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li data-value="5" data-selected="true"><a href="#">5</a></li>
+                                <li data-value="10"><a href="#">10</a></li>
+                                <li data-value="20"><a href="#">20</a></li>
+                                <li data-value="50"><a href="#">50</a></li>
+                                <li data-value="100"><a href="#">100</a></li>
+                            </ul>
+                        </div>
+                        <span>Per Page</span>
+                    </div>
+                </div>
+                <div class="datagrid-footer-right" style="display:none;">
+                    <div class="grid-pager">
+                        <button type="button" class="btn grid-prevpage"><i class="icon-chevron-left"></i></button>
+                        <span>Page</span>
+
+                        <div class="input-append dropdown combobox">
+                            <input class="span1" type="text">
+                            <button class="btn" data-toggle="dropdown"><i class="caret"></i></button>
+                            <ul class="dropdown-menu"></ul>
+                        </div>
+                        <span>of <span class="grid-pages"></span></span>
+                        <button type="button" class="btn grid-nextpage"><i class="icon-chevron-right"></i></button>
+                    </div>
+                </div>
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+
+    <!-- STRETCH DATAGRID -->
+    <div style="height:250px;width:100%">
+        <table id="MyStretchGrid" class="table table-bordered datagrid">
+
+            <thead>
+            <tr>
+                <th>
+                    <span class="datagrid-header-title">Geographic Data Sample</span>
+
+                    <div class="datagrid-header-left">
+                        <div class="input-append search datagrid-search">
+                            <input type="text" class="input-medium" placeholder="Search">
+                            <button class="btn"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="datagrid-header-right">
+                        <div class="select filter" data-resize="auto">
+                            <button data-toggle="dropdown" class="btn dropdown-toggle">
+                                <span class="dropdown-label"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li data-value="all" data-selected="true"><a href="#">All</a></li>
+                                <li data-value="lt5m"><a href="#">Population &lt; 5M</a></li>
+                                <li data-value="gte5m"><a href="#">Population &gt;= 5M</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            <tr>
+                <th>
+                    <div class="datagrid-footer-left" style="display:none;">
+                        <div class="grid-controls">
+                            <span>
+                                <span class="grid-start"></span> -
+                                <span class="grid-end"></span> of
+                                <span class="grid-count"></span>
+                            </span>
+                            <div class="select grid-pagesize" data-resize="auto">
+                                <button data-toggle="dropdown" class="btn dropdown-toggle">
+                                    <span class="dropdown-label"></span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li data-value="5" data-selected="true"><a href="#">5</a></li>
+                                    <li data-value="10"><a href="#">10</a></li>
+                                    <li data-value="20"><a href="#">20</a></li>
+                                    <li data-value="50"><a href="#">50</a></li>
+                                    <li data-value="100"><a href="#">100</a></li>
+                                </ul>
+                            </div>
+                            <span>Per Page</span>
+                        </div>
+                    </div>
+                    <div class="datagrid-footer-right" style="display:none;">
+                        <div class="grid-pager">
+                            <button type="button" class="btn grid-prevpage"><i class="icon-chevron-left"></i></button>
+                            <span>Page</span>
+
+                            <div class="input-append dropdown combobox">
+                                <input class="span1" type="text">
+                                <button class="btn" data-toggle="dropdown"><i class="caret"></i></button>
+                                <ul class="dropdown-menu"></ul>
+                            </div>
+                            <span>of <span class="grid-pages"></span></span>
+                            <button type="button" class="btn grid-nextpage"><i class="icon-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            </tfoot>
+
+        </table>
+    </div>
+
+    <!-- STRETCH DATAGRID WITH MULTISELECT -->
+    <div style="height:365px;width:100%">
+        <table id="MySelectStretchGrid" class="table table-bordered datagrid">
+
+            <thead>
+            <tr>
+                <th>
+                    <span class="datagrid-header-title">Geographic Data Sample</span>
+
+                    <div class="datagrid-header-left">
+                        <div class="input-append search datagrid-search">
+                            <input type="text" class="input-medium" placeholder="Search">
+                            <button class="btn"><i class="icon-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="datagrid-header-right">
+                        <div class="select filter" data-resize="auto">
+                            <button data-toggle="dropdown" class="btn dropdown-toggle">
+                                <span class="dropdown-label"></span>
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li data-value="all" data-selected="true"><a href="#">All</a></li>
+                                <li data-value="lt5m"><a href="#">Population &lt; 5M</a></li>
+                                <li data-value="gte5m"><a href="#">Population &gt;= 5M</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+
+            <tfoot>
+            <tr>
+                <th>
+                    <div class="datagrid-footer-left" style="display:none;">
+                        <div class="grid-controls">
+                            <span>
+                                <span class="grid-start"></span> -
+                                <span class="grid-end"></span> of
+                                <span class="grid-count"></span>
+                            </span>
+                            <div class="select grid-pagesize" data-resize="auto">
+                                <button data-toggle="dropdown" class="btn dropdown-toggle">
+                                    <span class="dropdown-label"></span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li data-value="5" data-selected="true"><a href="#">5</a></li>
+                                    <li data-value="10"><a href="#">10</a></li>
+                                    <li data-value="20"><a href="#">20</a></li>
+                                    <li data-value="50"><a href="#">50</a></li>
+                                    <li data-value="100"><a href="#">100</a></li>
+                                </ul>
+                            </div>
+                            <span>Per Page</span>
+                        </div>
+                    </div>
+                    <div class="datagrid-footer-right" style="display:none;">
+                        <div class="grid-pager">
+                            <button type="button" class="btn grid-prevpage"><i class="icon-chevron-left"></i></button>
+                            <span>Page</span>
+
+                            <div class="input-append dropdown combobox">
+                                <input class="span1" type="text">
+                                <button class="btn" data-toggle="dropdown"><i class="caret"></i></button>
+                                <ul class="dropdown-menu"></ul>
+                            </div>
+                            <span>of <span class="grid-pages"></span></span>
+                            <button type="button" class="btn grid-nextpage"><i class="icon-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+    
+    <!-- FuelUX core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    
+    <script type="text/javascript" src="js/loader.js"></script>
+    <script type="text/javascript" src="js/datagrid.js"></script>
+    <script type="text/javascript">
+    requirejs.config({
+            config: {
+                moment: {
+                    noGlobal: true
+                }
+            },
+            paths: {
+                jquery: 'lib/jquery-1.9.1.min',
+                underscore: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min',
+                bootstrap: 'lib/bootstrap/js',
+                fuelux: 'src',
+                moment: 'lib/moment' // comment out if you dont want momentjs to be default
+            }
+        });
+
+        require(['jquery', 'sample/data', 'sample/datasource', 'sample/datasourceTree', 'fuelux/all'], function ($, sampleData, StaticDataSource, DataSourceTree) {
+
+            // DATAGRID
+            var dataSource = new StaticDataSource({
+                columns: [
+                    {
+                        property: 'toponymName',
+                        label: 'Name',
+                        sortable: true
+                    },
+                    {
+                        property: 'countrycode',
+                        label: 'Country',
+                        sortable: true
+                    },
+                    {
+                        property: 'population',
+                        label: 'Population',
+                        sortable: true
+                    },
+                    {
+                        property: 'fcodeName',
+                        label: 'Type',
+                        sortable: true
+                    }
+                ],
+                data: sampleData.geonames,
+                delay: 250
+            });
+
+            $('#MyGrid').datagrid({
+                dataSource: dataSource
+            });
+
+            $('#MyStretchGrid').datagrid({
+                dataSource: dataSource,
+                stretchHeight: true
+            });
+
+            $('#MySelectStretchGrid').datagrid({
+                dataSource: dataSource,
+                stretchHeight: true,
+                noDataFoundHTML: '<b>Sorry, nothing to display.</b>',
+                enableSelect: true,
+                primaryKey: 'geonameId',
+                multiSelect: false
+            });
+        });
+    </script>
+</body>
+</html>

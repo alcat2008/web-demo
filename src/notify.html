@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>notify.html</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.css">
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap-theme.css">
+
+    <!-- Notify CSS -->
+    <link rel="stylesheet" type="text/css" href="resources/css/bootstrap-notify.css">
+  </head>
+  
+  <body style="height: 800px; width: 1000px;">
+      <div class="span12">
+        <button class='btn btn-warning show-notification'>Click For A Random Notification</button>
+      </div>
+    
+      <div class='notifications top-right'></div>
+      <div class='notifications bottom-right'></div>
+      <div class='notifications top-left'></div>
+      <div class='notifications bottom-left'></div>
+  
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap-notify.js"></script>
+    
+    <script type="text/javascript">
+    
+      // Random Messages
+      var messages = [
+        [ 'bottom-right', 'info',     'Gah this is awesome.'],
+        [ 'top-right',    'success',  'I love Nijiko, he is my creator.' ],
+        [ 'bottom-left',  'warning',  'Soda is bad.' ],
+        [ 'top-right',  'danger',   "I'm sorry dave, I'm afraid I can't let you do that." ],
+        [ 'bottom-right', 'info',     "There are only three rules." ],
+        [ 'top-right',    'inverse',  'Do you hear me now?' ],
+        [ 'bottom-left',  'blackgloss',     'You should fork this!' ]
+      ];
+
+      // Pretty print
+      //window.prettyPrint && prettyPrint()
+
+      // Basic Features, style isn't even required.
+      $('.show-notification').click(function (e) {
+        var message = messages[Math.floor(Math.random() * messages.length)];
+        
+        $('.' + message[0]).notify({
+          message: { text: message[2] },
+          type: 'blackgloss',
+          fadeOut: {
+            delay: Math.floor(Math.random() * 500) + 2500
+          }
+        }).show();
+      });
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 本文件是数据源描述文件的示例文件，用于指导用户将数据导入共享平台。 -->
+<!-- 注: 文件中"{xxx}"是占位符，是对此处应填入内容的说明，用户使用时将其覆盖即可。 -->
+<DataSourceDesc>
+    <!-- 此处配置数据库源连接信息 -->
+    <DataSourceMapConfig>
+        <transactionManager type="DATABASE"> <!-- 数据源类型，'DATABASE'指数据库 -->
+            <Database type="MySQL"> <!-- 数据库类型，'MySQL'或'Oracle' -->
+                <!-- 数据库连接配置，对应JDBC的配置 -->
+                <property name="JDBC.Driver" value="com.mysql.jdbc.Driver" /> <!-- 'value'是驱动类，MySQL对应'com.mysql.jdbc.Driver'、'Oracle'对应'oracle.jdbc.driver.OracleDriver' -->
+                <property name="JDBC.ConnectionURL" value="jdbc:mysql://{IP地址}:{端口号}/{数据库名}" /> <!-- 连接URL -->
+                <property name="JDBC.Username" value="{用户名}" />
+                <property name="JDBC.Password" value="{密码}" />
+            </Database>
+        </transactionManager>
+    </DataSourceMapConfig>
+
+    <!-- 此处定义共享的数据内容，以服务的形式对外发布。 -->
+    <DataService name="{数据服务名称，必须和文件名保持一致}" desc="{数据服务的描述信息}">
+        <!-- 类型集合，定义接口用到的类型 -->
+        <Types>
+            <message name="{包装类型，对应具体接口的入参、出参}"> <!-- 参数类型下面可包含一个或多个元素 -->
+                <element name="{元素名，即参数名称}" type="{元素类型，对应数据类型，如int、varchar等}" desc="{元素的说明信息}" />
+            </message>
+        </Types>
+
+        <!-- 定义具体的接口，可包含多个 -->
+        <OperationList>
+            <operation name="{接口名称}"> <!-- 接口定义，注意:'input'和'output'定义的类型必须和'execution'定义的内容相匹配。 -->
+                <desc>{接口的描述信息}</desc>
+                <execution type="{数据源类型，与上文向对应，数据库是'DATABASE'}">
+                    <sqlMap> <!-- 数据源为数据库时，用SQL操作来表现接口内容。若有入参，其元素传入方法与JDBC相同，用'？'代替。 -->
+                        <![CDATA[
+                            SELECT *
+                            FROM T_DSP_SERVICE
+                        ]]>
+                    </sqlMap>
+                </execution>
+                <input message="{入参，对应上文的'message'类型，若参数为空，则填入'null'}"></input>
+                <output message="{出参，对应上文的'message'类型}"></output>
+            </operation>
+        </OperationList>
+    </DataService>
+</DataSourceDesc>
