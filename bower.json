@@ -1,0 +1,21 @@
+{
+  "name": "web-demo",
+  "description": "Demo project to do testing for web.",
+  "authors": [
+    "ge_yangyang@126.com"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "Chart.js": "^1.0.2",
+    "es5-shim": "4.4.1",
+    "font-awesome": "4.3.0",
+    "console-polyfill": "0.2.2",
+    "html5shiv": "3.7.3",
+    "jquery": "1.11.1",
+    "respond": "1.4.2",
+    "es6-promise": "^3.2.1"
+  }
+}

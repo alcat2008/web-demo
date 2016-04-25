@@ -1,0 +1,15 @@
+{
+  "name": "web-demo",
+  "version": "0.0.1",
+  "description": "Demo project to do testing for web.",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "eslint": "^2.4.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-react": "^5.0.1"
+  },
+  "scripts": {},
+  "author": "ge_yangyang@126.com"
+}
