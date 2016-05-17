@@ -1,0 +1,22 @@
+{
+  "name": "bigpipe",
+  "main": "bigpipe.js",
+  "homepage": "https://github.com/alcat2008/web-demo",
+  "authors": [
+    "alcat2008 <ge_yangyang@126.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "underscore": "^1.8.3"
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <title>bigpipe</title>
+  <meta charset="utf8">
+  <link rel="stylesheet" href="/bigpipe/css/base.css">
+</head>
+<body>
+<div class="container">
+  <h1>this is bigpipe demo</h1>
+  <div class="content" id="body1">
+    <!-- 此处数据异步加载 -->
+  </div>
+  <div class="content" id="body2">
+    <!-- 此处数据异步加载 -->
+  </div>
+  <footer>
+    by feenan
+  </footer>
+</div>
+
+<!-- 模板1 -->
+<script type="text/template" id="fileinfo1">
+  <p>
+    <%= info%>
+  </p>
+</script>
+<!-- 模板2 -->
+<script type="text/template" id="fileinfo2">
+  <p>
+    <%= info%>
+  </p>
+</script>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/underscore/underscore.js"></script>
+<script src="/bigpipe/js/bigpipe.js"></script>
+
+</body>
+</html>
+
+<script>
+  var bigpipe = new Bigpipe();
+  bigpipe.ready('users', function(data){
+    // console.log(data);
+    var template = _.template($('#fileinfo1').html());
+    $('#body1').html(template({info: data}));
+  });
+  bigpipe.ready('info', function(data){
+    console.log(data);
+    var template = _.template($('#fileinfo2').html());
+    $('#body2').html(template({info: data}));
+  });
+</script>
