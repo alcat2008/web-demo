@@ -1,0 +1,7 @@
+{
+  "extends": "airbnb-base/legacy",
+  "rules": {
+    "padded-blocks": ["error", "never"],
+    "no-unused-vars": ["warn", { "vars": "local" }]
+  }
+}
