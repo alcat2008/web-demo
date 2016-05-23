@@ -1,0 +1,43 @@
+<script type="text/javascript">
+  if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+    if (window.location.href.indexOf("?mobile") < 0) {
+      try {
+        if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+          window.location.href = "./mobile.html";
+        } else if (/iPad/i.test(navigator.userAgent)) {
+
+        } else {
+          window.location.href = "http://shipei.qq.com/simple/s/index/"
+        }
+      } catch (e) {
+      }
+    }
+  }
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style type="text/css">
+    html {
+      font-size: calc(100vw/3.75);
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align: center; font-size: 0.2rem; font-weight: bold;">This is web page.</div>
+  <div>
+    <img src="http://o7ilsjg54.bkt.clouddn.com/fire.jpg" style="width: 100%;" alt="fire"/>
+  </div>
+
+  <script>
+    /*鉴于有些低版本的浏览器暂不支持vw单位，以下计算为了保障低版本浏览器也能获得vw一样的效果。*/
+//    var body_width = document.documentElement.clientWidth;//获得浏览器可视宽度
+    document.documentElement.style.fontSize = window.innerWidth/3.75 + 'px';
+
+  </script>
+</body>
+</html>
