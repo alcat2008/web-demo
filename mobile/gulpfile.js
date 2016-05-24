@@ -1,5 +1,8 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var watch = require('gulp-watch');
+var plumber = require('gulp-plumber');
+
 var concat = require('gulp-concat');
 
 var htmlmin = require('gulp-htmlmin');
@@ -32,6 +35,12 @@ gulp.task('minify-html', function () {
 
 gulp.task('minify-css', function () {
   return gulp.src(config.css + '/*.css')
+    .pipe(plumber({
+      errorHandler: function(err) {
+        gutil.log('Gulp Error!', err.message);
+        this.emit('end');
+      }
+    }))
     .pipe(sourcemaps.init())
     .pipe(concat(config.name + '-app.css'))
     .pipe(autoprefixer({
@@ -46,6 +55,12 @@ gulp.task('minify-css', function () {
 
 gulp.task('minify-js', function () {
   return gulp.src(config.js + '/*.js')
+    .pipe(plumber({
+      errorHandler: function(err) {
+        gutil.log('Gulp Error!', err.message);
+        this.emit('end');
+      }
+    }))
     .pipe(sourcemaps.init())
     .pipe(concat(config.name + '-app.js'))
     .pipe(gutil.env.type === 'production' ? uglify({ mangle: false }) : gutil.noop())
@@ -56,4 +71,7 @@ gulp.task('minify-js', function () {
 
 gulp.task('default', ['minify-html']);
 
+gulp.task('watch', function () {
+  gulp.watch(config.src, ['minify-css', 'minify-js']);
+});
 

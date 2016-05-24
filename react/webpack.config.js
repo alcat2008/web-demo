@@ -16,7 +16,7 @@ var config = {
   module: {
     loaders: [{
       // test: /\.jsx?$/,
-      test: /\.js$|\.jsx$/,
+      test: /\.(js|jsx)$/,
       loader: 'babel?presets[]=react,presets[]=es2015'
     }, {
       test: /\.css$/, // Only .css files

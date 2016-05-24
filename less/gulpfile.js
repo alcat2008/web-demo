@@ -1,18 +1,17 @@
 var gulp = require('gulp');
-var stylus = require('gulp-stylus');
+var less = require('gulp-less');
 var watch = require('gulp-watch');
-// var plumber = require('gulp-plumber');
+var plumber = require('gulp-plumber');
 
-// var autoprefixer = require('autoprefixer-stylus');
 var autoprefixer = require('gulp-autoprefixer');
+var cleanCSS = require('gulp-clean-css');
 
 var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 
 var paths = {
-  stylus: './styl/style.styl',
+  less: './less/style.less',
   css: './css/',
-  sourcemaps: './sourcemaps/',
   js: [
     '**/*.js',
     '!node_modules',
@@ -20,24 +19,28 @@ var paths = {
 };
 
 gulp.task('style', function () {
-  return gulp.src(paths.stylus)
-    // .pipe(plumber())
+  return gulp.src(paths.less)
+    .pipe(plumber({
+      errorHandler: function(err) {
+        gutil.log('Gulp Error!', err.message);
+        this.emit('end');
+      }
+    }))
     .pipe(sourcemaps.init())
-    .pipe(stylus())
+    .pipe(less())
     .pipe(autoprefixer({
       browsers: ['not ie < 8', '> 5%', 'last 2 versions'],
       cascade: false
     }))
-    // 在这里将转换任务加入管道
-    .on('error', gutil.log)
+    .pipe(gutil.env.type === 'production' ? cleanCSS({ compatibility: 'ie8' }) : gutil.noop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.css));
 });
 
-gulp.task('watch', function() {
-  gulp.watch(paths.stylus, ['style']);
+gulp.task('watch', function () {
+  gulp.watch(paths.less, ['style']);
 });
 
-gulp.task('default', function() {
+gulp.task('default', function () {
   // 将你的默认的任务代码放在这
 });
