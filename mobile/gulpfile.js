@@ -48,7 +48,6 @@ gulp.task('minify-css', function () {
       cascade: false
     }))
     .pipe(gutil.env.type === 'production' ? cleanCSS({ compatibility: 'ie8' }) : gutil.noop())
-    .on('error', gutil.log)
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.dist));
 });
@@ -64,7 +63,6 @@ gulp.task('minify-js', function () {
     .pipe(sourcemaps.init())
     .pipe(concat(config.name + '-app.js'))
     .pipe(gutil.env.type === 'production' ? uglify({ mangle: false }) : gutil.noop())
-    .on('error', gutil.log)
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.dist));
 });
