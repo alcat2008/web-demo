@@ -1,0 +1,88 @@
+/**
+ * Variables
+ */
+@link-color: #428bca; // sea blue
+@link-color-hover: darken(@link-color, 10%);
+
+// Usage
+a,
+.link {
+  color: @link-color;
+}
+
+a:hover {
+  color: @link-color-hover;
+}
+
+.widget {
+  color: #fff;
+  background: @link-color;
+}
+
+/**
+ * Selectors
+ */
+@my-selector: banner;
+
+// Usage
+.@{my-selector} {
+  font-weight: bold;
+  line-height: 40px;
+  margin: 0 auto;
+}
+
+/**
+ * URLs
+ */
+@images: "../img";
+
+// Usage
+body {
+  color: #444;
+  background: url("@{images}/white-sand.png");
+}
+
+/**
+ * Import Statements
+ */
+@themes: "./";
+
+// Usage
+@import "@{themes}/style.less";
+
+/**
+ * Properties
+ */
+@property: color;
+
+.widget {
+    @{property}: #0ee;
+  background-@{property}: #999;
+}
+
+/**
+ * Scoping / Extend Inside @media
+ */
+@media print {
+  .screenClass:extend(.selector) {} // extend inside media
+  .selector { // this will be matched - it is in the same media
+    color: black;
+  }
+}
+.selector { // ruleset on top of style sheet - extend ignores it
+  color: red;
+}
+@media screen {
+  .selector {  // ruleset inside another media - extend ignores it
+    color: blue;
+  }
+}
+
+@media screen {
+  .screenClass:extend(.selector) {} // extend inside media
+  @media (min-width: 1023px) {
+    .selector {  // ruleset inside nested media - extend ignores it
+      color: blue;
+    }
+  }
+}

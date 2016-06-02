@@ -36,19 +36,19 @@ gulp.task('minify-html', function () {
 gulp.task('minify-css', function () {
   return gulp.src(config.css + '/*.css')
     .pipe(plumber({
-      errorHandler: function(err) {
+      errorHandler: function (err) {
         gutil.log('Gulp Error!', err.message);
         this.emit('end');
       }
     }))
-    .pipe(sourcemaps.init())
+    .pipe(gutil.env.type === 'production' ? gutil.noop() : sourcemaps.init())
     .pipe(concat(config.name + '-app.css'))
     .pipe(autoprefixer({
       browsers: ['not ie < 8', '> 5%', 'last 2 versions'],
       cascade: false
     }))
     .pipe(gutil.env.type === 'production' ? cleanCSS({ compatibility: 'ie8' }) : gutil.noop())
-    .pipe(sourcemaps.write())
+    .pipe(gutil.env.type === 'production' ? gutil.noop() : sourcemaps.write())
     .pipe(gulp.dest(config.dist));
 });
 
@@ -60,10 +60,10 @@ gulp.task('minify-js', function () {
         this.emit('end');
       }
     }))
-    .pipe(sourcemaps.init())
+    .pipe(gutil.env.type === 'production' ? gutil.noop() : sourcemaps.init())
     .pipe(concat(config.name + '-app.js'))
     .pipe(gutil.env.type === 'production' ? uglify({ mangle: false }) : gutil.noop())
-    .pipe(sourcemaps.write())
+    .pipe(gutil.env.type === 'production' ? gutil.noop() : sourcemaps.write())
     .pipe(gulp.dest(config.dist));
 });
 

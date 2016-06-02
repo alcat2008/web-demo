@@ -10,7 +10,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
 
 var paths = {
-  less: './less/style.less',
+  less: './less/*.less',
   css: './css/',
   js: [
     '**/*.js',
@@ -21,26 +21,27 @@ var paths = {
 gulp.task('style', function () {
   return gulp.src(paths.less)
     .pipe(plumber({
-      errorHandler: function(err) {
+      errorHandler: function (err) {
         gutil.log('Gulp Error!', err.message);
         this.emit('end');
       }
     }))
-    .pipe(sourcemaps.init())
+    .pipe(gutil.env.type === 'production' ? gutil.noop() : sourcemaps.init())
     .pipe(less())
     .pipe(autoprefixer({
       browsers: ['not ie < 8', '> 5%', 'last 2 versions'],
       cascade: false
     }))
     .pipe(gutil.env.type === 'production' ? cleanCSS({ compatibility: 'ie8' }) : gutil.noop())
-    .pipe(sourcemaps.write())
+    .pipe(gutil.env.type === 'production' ? gutil.noop() : sourcemaps.write())
     .pipe(gulp.dest(paths.css));
 });
 
 gulp.task('watch', function () {
+  gulp.start('style');
   gulp.watch(paths.less, ['style']);
 });
 
 gulp.task('default', function () {
-  // 将你的默认的任务代码放在这
+  gulp.start('style');
 });
