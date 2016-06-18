@@ -1,7 +1,21 @@
 {
-  "extends": "airbnb-base/legacy",
+  "parser": "babel-eslint",
+  "extends": "airbnb-base",
   "rules": {
     "padded-blocks": ["error", "never"],
-    "no-unused-vars": ["warn", { "vars": "local" }]
+    "no-unused-vars": ["warn", { "vars": "local" }],
+    "no-underscore-dangle": ["off", { "allowAfterThis": true }],
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+    "global-require": ["warn"],
+    "prefer-template": ["off"],
+    "max-len": ["warn"],
+    "comma-dangle": ["warn", "only-multiline"],
+    "new-cap": ["error", { "capIsNewExceptions": ["BFetch", "PFetch", "UFetch", "DPUFetch", "BFetch1", "Alert", "Manager"] }],
+    "object-shorthand": ["warn"],
+    "arrow-body-style": ["warn", "as-needed", { "requireReturnForObjectLiteral": true }],
+    "quote-props": ["error", "consistent-as-needed", { "keywords": true }],
+    "no-unused-expressions": ["error", { "allowShortCircuit": true }],
+    "react/jsx-boolean-value": ["error", "always"],
+    "react/prop-types": ["warn", { ignore: ["navigator", "exec"] }],
   }
 }
