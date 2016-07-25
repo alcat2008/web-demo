@@ -4,8 +4,6 @@ var path = require('path');
 
 var config = {
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
     path.resolve(__dirname, 'app/main.js')
   ],
   output: {
@@ -20,7 +18,6 @@ var config = {
       test: /\.css$/, // Only .css files
       loader: 'style!css' // Run both loaders
     }],
-    // noParse: [pathToReact]
   },
   // devtool: '#cheap-module-eval-source-map'
 };
