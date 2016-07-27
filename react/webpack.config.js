@@ -19,7 +19,10 @@ var config = {
       loader: 'style!css' // Run both loaders
     }],
   },
+
+  debug: true,
   // devtool: '#cheap-module-eval-source-map'
+  devtool: '#source-map'
 };
 
 module.exports = config;

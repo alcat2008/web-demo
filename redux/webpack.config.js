@@ -4,7 +4,7 @@ var path = require('path');
 
 var config = {
   entry: [
-    path.resolve(__dirname, 'src/index.js')
+    path.resolve(__dirname, 'counter/index.js')
   ],
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -27,15 +27,27 @@ var config = {
 
       // Options to configure babel with
       query: {
+        // https://github.com/babel/babel-loader#options
+        cacheDirectory: true,
+
+        // https://babeljs.io/docs/usage/options/
+        babelrc: false,
+        presets: [
+          'react',
+          'es2015',
+          'stage-0',
+        ],
         plugins: ['transform-runtime'],
-        presets: ['es2015', 'stage-0', 'react'],
-      }
+      },
     }, {
       test: /\.css$/, // Only .css files
       loader: 'style!css' // Run both loaders
     }],
   },
+
+  debug: true,
   // devtool: '#cheap-module-eval-source-map'
+  devtool: '#source-map'
 };
 
 module.exports = config;
