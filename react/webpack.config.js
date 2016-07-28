@@ -4,6 +4,8 @@ var path = require('path');
 
 var config = {
   entry: [
+    // 'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+    // 'webpack/hot/dev-server',
     path.resolve(__dirname, 'app/main.js')
   ],
   output: {
@@ -13,7 +15,8 @@ var config = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loader: 'babel?presets[]=react,presets[]=es2015'
+      exclude: /node_modules/,
+      loader: 'react-hot!babel?presets[]=react,presets[]=es2015'
     }, {
       test: /\.css$/, // Only .css files
       loader: 'style!css' // Run both loaders
