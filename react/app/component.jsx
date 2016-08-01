@@ -7,6 +7,7 @@ export default class Hello extends React.Component {
     super(props);
     // initial state
     this.state = {
+      val: 0,
       info: {
         message: 'this is demo page, will be update after 3s'
       }
@@ -14,6 +15,17 @@ export default class Hello extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({ val: this.state.val + 1 });
+    console.log(this.state.val); // 输出： 0
+
+    this.setState({ val: this.state.val + 1 }, () => {
+      this.setState({ val: this.state.val + 1 }, () => {
+        console.log(this.state.val); // 输出： 2
+      });
+      console.log(this.state.val); // 输出：1
+    });
+    console.log(this.state.val); // 输出： 0
+
     setTimeout(() => {
       this.setState({
         info: {
