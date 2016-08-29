@@ -7,11 +7,20 @@ SuperType.prototype.getSuperValue = function () {
 };
 
 function SubType() {
+  SuperType.call(this);
+
   this.subproperty = false;
 }
 
+function inheritPrototype(subType, superType) {
+  var prototype = Object(superType.prototype);
+  prototype.constructor = subType;
+  subType.prototype = prototype;
+}
+
 // 继承了 SuperType
-SubType.prototype = new SuperType();
+// SubType.prototype = new SuperType();
+inheritPrototype(SubType, SuperType);
 
 SubType.prototype.getSubValue = function () {
   return this.subproperty;
@@ -19,10 +28,11 @@ SubType.prototype.getSubValue = function () {
 
 var instance = new SubType();
 // var instance = new SuperType();
-console.log(instance.getSuperValue());
-console.log(instance.getSubValue());
+console.log(instance.getSuperValue()); // true
+console.log(instance.getSubValue()); // false
+console.log(instance.constructor); // [Function: SuperType]
 
-console.log(SubType.prototype.constructor);
-console.log(SubType.prototype.getSuperValue());
-console.log(instance.__proto__ === SubType.prototype);
-console.log(instance.__proto__ === SuperType.prototype);
+console.log(SubType.prototype.constructor); // [Function: SuperType]
+// console.log(SubType.prototype.getSuperValue()); // true
+console.log(instance.__proto__ === SubType.prototype); // true
+console.log(instance.__proto__ === SuperType.prototype); // false
