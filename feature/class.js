@@ -2,18 +2,24 @@
 class PointClass {
   constructor(x, y) {
     // ...
+    this.x = 4;
+    this.func3 = () => {};
   }
 
-  toString() {
+  func1() {
     // ...
   }
 }
+
+PointClass.prototype.func2 = function () {
+
+};
 
 var PointPrototype = function (x, y) {
   // ...
 }
 
-PointPrototype.prototype.toString = function () {
+PointPrototype.prototype.func1 = function () {
   // ...
 }
 
