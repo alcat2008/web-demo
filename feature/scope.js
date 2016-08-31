@@ -1,14 +1,9 @@
 
-let shouldSubscribe = Boolean({});
-if (shouldSubscribe) {
-  console.log('Boolean({})');
-}
-
-shouldSubscribe = Boolean(state => ({}));
-if (shouldSubscribe) {
-  console.log('Boolean(state => ({}))');
-}
-
+console.log('Boolean({}) ' + Boolean({}));
+console.log('Boolean(\'\') ' + Boolean(''));
+console.log('Boolean(state => ({})) ' + Boolean(state => ({})));
+console.log('Boolean(null) ' + Boolean(null));
+console.log('Boolean(undefined) ' + Boolean(undefined));
 
 
 function add(a, b) {
