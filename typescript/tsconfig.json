@@ -1,11 +1,14 @@
 {
     "compilerOptions": {
-        "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
-        "jsx": "preserve",
-        "target": "es6"
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "jsx": "react",
+        "outDir": "./dist"
     },
-    "exclude": [
-        "node_modules"
+    "files": [
+        "./typings/index.d.ts",
+        "./src/index.tsx"
     ]
 }
