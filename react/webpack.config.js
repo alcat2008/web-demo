@@ -6,7 +6,7 @@ var config = {
   entry: [
     // 'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
     // 'webpack/hot/dev-server',
-    path.resolve(__dirname, 'app/main.js')
+    path.resolve(__dirname, 'src/index.jsx')
   ],
   output: {
     path: path.resolve(__dirname, 'build'),

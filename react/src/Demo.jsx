@@ -1,5 +1,5 @@
 import React from 'react';
-import './component.css';
+import './app.css';
 
 export default class Hello extends React.Component {
 
@@ -32,7 +32,7 @@ export default class Hello extends React.Component {
           message: 'message updated'
         }
       });
-    }, 10000);
+    }, 3000);
   }
 
   render() {
