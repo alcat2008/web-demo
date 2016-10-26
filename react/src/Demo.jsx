@@ -1,6 +1,9 @@
 import React from 'react';
 import './app.css';
 
+import MaskLayer from './mask-layer';
+import './mask-layer/style/index.less';
+
 export default class Hello extends React.Component {
 
   constructor(props) {
@@ -10,7 +13,8 @@ export default class Hello extends React.Component {
       val: 0,
       info: {
         message: 'this is demo page, will be update after 3s'
-      }
+      },
+      maskerVisible: false,
     };
   }
 
@@ -40,6 +44,8 @@ export default class Hello extends React.Component {
       <div className="test-class">
         <h1>Hello React</h1>
         <div>{this.state.info.message}</div>
+        <div onClick={() => this.setState({ maskerVisible: true })}>show mask layer</div>
+        <MaskLayer visible={this.state.maskerVisible} />
       </div>
     );
   }

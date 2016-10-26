@@ -20,6 +20,17 @@ var config = {
     }, {
       test: /\.css$/, // Only .css files
       loader: 'style!css' // Run both loaders
+    }, {
+      test: /\.less$/,
+      loaders: [
+        'style-loader',
+        `css-loader?${JSON.stringify({
+          sourceMap: true,
+          // CSS Nano http://cssnano.co/options/
+          minimize: false,
+        })}`,
+        'less-loader',
+      ],
     }],
   },
 
