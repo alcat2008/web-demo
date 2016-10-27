@@ -52,6 +52,7 @@
     "webpack-manifest-plugin": "1.1.0"
   },
   "dependencies": {
+    "antd-mobile": "^0.9.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
