@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Button } from 'antd-mobile';
+import ListView from './listview';
 
 class App extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class App extends Component {
     // initial state
     this.state = {
       maskerVisible: false,
+      display: 'info',
     };
   }
 
@@ -26,6 +28,12 @@ class App extends Component {
     this.setState({ maskerVisible: true });
   };
 
+  _onClick = e => {
+    this.setState({
+      display: this.state.display === 'info' ? 'thumb' : 'info',
+    })
+  };
+
   render() {
     return (
       <div className="App">
@@ -36,7 +44,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Button>Start</Button>
+        <Button onClick={this._onClick}>Start</Button>
+        <ListView display={this.state.display} />
       </div>
     );
   }
