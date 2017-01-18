@@ -4,12 +4,12 @@ const Nightmare = require('nightmare');
 const nightmare = Nightmare({ show: true });
 
 nightmare
-  .goto('https://duckduckgo.com')
-  .type('#search_form_input_homepage', 'github nightmare')
-  .click('#search_button_homepage')
-  .wait('#zero_click_wrapper .c-info__title a')
+  .goto('https://baidu.com')
+  .type('#kw', 'github nightmare')
+  .click('#su')
+  .wait('.result.c-container .t.c-title-en a')
   .evaluate(function () {
-    return document.querySelector('#zero_click_wrapper .c-info__title a').href;
+    return document.querySelector('.result.c-container .t.c-title-en a').href;
   })
   .end()
   .then(function (result) {
