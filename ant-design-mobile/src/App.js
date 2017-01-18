@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Button } from 'antd-mobile';
-import ListView from './listview';
+import ListView from './listview/body';
 
 class App extends Component {
   constructor(props) {
