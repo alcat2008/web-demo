@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>polyfill test</title>
+</head>
+<body>
+  <div id="result" />
+
+  <script type="text/javascript" src="./reduce.js"></script>
+  <script type="text/javascript">
+
+    const stringArray = ['1', '2', '3'];
+    const numberArray = [1, 2, 3];
+    const result = numberArray.custom((acc, value, index) => {
+      console.log('index: ', index, ' acc: ', acc, ' value: ', value);
+      return acc + value;
+    }, 10);
+
+    document.getElementById('result').innerHTML = result;
+  </script>
+</body>
+</html>
