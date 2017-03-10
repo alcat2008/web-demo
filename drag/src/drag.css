@@ -1,17 +1,18 @@
-.list-sort-demo-wrapper {
+.wrapper {
   position: relative;
-  background: #e6e6e6;
-  overflow: hidden;
-  height: 385px;
+  background: #f3b6b6;
+  /*overflow: hidden;*/
+  /*height: 385px;*/
 }
 
 .list-sort-demo {
   margin: 40px auto;
   max-width: 350px;
   width: 90%;
-  cursor: url('http://gtms02.alicdn.com/tps/i2/T1_PMSFLBaXXcu5FDa-20-20.png') 10 10,pointer!important;
+  /*cursor: url('http://gtms02.alicdn.com/tps/i2/T1_PMSFLBaXXcu5FDa-20-20.png') 10 10,pointer!important;*/
+  cursor: move;
   position: relative;
-  height: 305px;
+  /*height: 305px;*/
 }
 .list-sort-demo > div{
   overflow: hidden;

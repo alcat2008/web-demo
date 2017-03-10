@@ -1,7 +1,5 @@
-/* eslint-disable no-console */
-
-import React from 'react';
-import ListSort from './ListSort';
+import React from "react";
+import Sortable from 'sortablejs';
 
 const dataArray = [
   {
@@ -30,7 +28,7 @@ const dataArray = [
   },
 ];
 
-export default class ListSortDemo extends React.Component {
+export default class SortableExampleEsnext extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
   };
@@ -39,29 +37,38 @@ export default class ListSortDemo extends React.Component {
     className: 'list-sort-demo',
   };
 
+  sortableGroupDecorator = (componentBackingInstance) => {
+    // check if backing instance not null
+    if (componentBackingInstance) {
+      let options = {
+        draggable: ".dragablediv", // Specifies which items inside the element should be sortable
+        group: "shared"
+      };
+      Sortable.create(componentBackingInstance, options);
+    }
+  };
+
   render() {
     const childrenToRender = dataArray.map((item, i) => {
       const { title, text } = item;
       return (
-        <div key={i} className={`${this.props.className}-list`}>
-          <div className={`${this.props.className}-icon`}>
+        <div key={i} className="list-sort-demo-list dragablediv">
+          <div className="list-sort-demo-icon">
           </div>
-          <div className={`${this.props.className}-text`}>
+          <div className="list-sort-demo-text">
             <h1>{title}</h1>
             <p>{text}</p>
           </div>
         </div>
       );
     });
+
     return (
       <div className="wrapper">
-        <div className={this.props.className}>
-          <ListSort
-            dragClassName="list-drag-selected"
-            appearAnim={{ animConfig: { marginTop: [5, 30], opacity: [1, 0] } }}
-          >
+        <div className="list-sort-demo">
+          <div ref={this.sortableGroupDecorator}>
             {childrenToRender}
-          </ListSort>
+          </div>
         </div>
       </div>
     );
