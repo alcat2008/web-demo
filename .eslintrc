@@ -17,5 +17,6 @@
     "no-unused-expressions": ["error", { "allowShortCircuit": true }],
     "react/jsx-boolean-value": ["error", "always"],
     "react/prop-types": ["warn", { ignore: ["navigator", "exec"] }],
+    "react/react-in-jsx-scope": ["off"],
   }
 }
