@@ -41,6 +41,7 @@ export default class SortableExampleEsnext extends React.Component {
     // check if backing instance not null
     if (componentBackingInstance) {
       let options = {
+        animation: 150,
         draggable: ".dragablediv", // Specifies which items inside the element should be sortable
         group: "shared"
       };

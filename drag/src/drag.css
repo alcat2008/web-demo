@@ -1,8 +1,18 @@
 .wrapper {
   position: relative;
-  background: #f3b6b6;
+  /*background: #f3b6b6;*/
   /*overflow: hidden;*/
   /*height: 385px;*/
+
+  background-image: -webkit-linear-gradient(bottom, #F4E2C9 20%, #F4D7C9 100%);
+  background-image: -ms-linear-gradient(bottom, #F4E2C9 20%, #F4D7C9 100%);
+  background-image: linear-gradient(to bottom, #F4E2C9 20%, #F4D7C9 100%);
+}
+
+
+.sortable-ghost {
+  opacity: .4;
+  background-color: #F4E2C9;
 }
 
 .list-sort-demo {
