@@ -43,7 +43,20 @@ export default class SortableExampleEsnext extends React.Component {
       let options = {
         animation: 150,
         draggable: ".dragablediv", // Specifies which items inside the element should be sortable
-        group: "shared"
+        group: "shared",
+        // onChoose: function (/**Event*/evt) {
+        //   evt.oldIndex;  // element index within parent
+        // },
+        // onEnd: function (/**Event*/evt) {
+        //   console.log('onEnd => evt.oldIndex', evt.oldIndex);  // element's old index within parent
+        //   console.log('onEnd => evt', evt);
+        //   console.log('onEnd => evt.newIndex', evt.newIndex);  // element's new index within parent
+        // },
+        onUpdate: function (/**Event*/evt) {
+          console.log('Sortablejs onUpdate => evt.oldIndex', evt.oldIndex);  // element's old index within parent
+          console.log('Sortablejs onUpdate => evt', evt);
+          console.log('Sortablejs onUpdate => evt.newIndex', evt.newIndex);  // element's new index within parent
+        },
       };
       Sortable.create(componentBackingInstance, options);
     }

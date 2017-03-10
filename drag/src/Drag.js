@@ -39,11 +39,15 @@ export default class ListSortDemo extends React.Component {
     className: 'list-sort-demo',
   };
 
+  _onChange = children => {
+    console.log('ant-motion onChange => children', children);
+  }
+
   render() {
     const childrenToRender = dataArray.map((item, i) => {
       const { title, text } = item;
       return (
-        <div key={i} className={`${this.props.className}-list`}>
+        <div key={i} data-sequence={i} className={`${this.props.className}-list`}>
           <div className={`${this.props.className}-icon`}>
           </div>
           <div className={`${this.props.className}-text`}>
@@ -57,6 +61,7 @@ export default class ListSortDemo extends React.Component {
       <div className="wrapper">
         <div className={this.props.className}>
           <ListSort
+            onChange={this._onChange}
             dragClassName="list-drag-selected"
             appearAnim={{ animConfig: { marginTop: [5, 30], opacity: [1, 0] } }}
           >
