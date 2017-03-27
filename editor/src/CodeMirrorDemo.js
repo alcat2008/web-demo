@@ -11,8 +11,17 @@ class CodeMirrorDemo extends React.Component {
     // initial state
     this.state = {
       code: '// Code \n' +
-      'import React from \'react\'; \n' +
-      'import CodeMirror from \'react-codemirror\'; \n',
+        'import React from \'react\'; \n' +
+        '\n' +
+        'class CodeMirrorDemo extends React.Component {\n' +
+        '  render() {\n' +
+        '    return (\n' +
+        '      <div>CodeMirrorDemo</div>\n' +
+        '    );\n' +
+        '  }\n' +
+        '}\n' +
+        '\n' +
+        'export default CodeMirrorDemo;\n',
     };
   }
 

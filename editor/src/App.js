@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import CodeMirrorDemo from './CodeMirrorDemo';
+import AceDemo from './AceDemo';
 
 class App extends React.Component {
   render() {
@@ -12,7 +13,8 @@ class App extends React.Component {
             <CodeMirrorDemo />
           </div>
           <div>
-            <h3>ant-motion</h3>
+            <h3>ace</h3>
+            <AceDemo />
           </div>
         </div>
       </div>
