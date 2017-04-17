@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<svg width="800" height="400">
+  <circle cx="100" cy="100" r="0" style="fill: #d8210d">
+    <animate
+      id="a1"
+      attributeName="r"
+      attributeType="XML"
+      from="0"
+      to="50"
+      begin="0s"
+      dur="1s"
+      fill="freeze"
+    />
+  </circle>
+  <circle cx="150" cy="100" r="0" style="fill: #e61b64">
+    <animate
+      id="a2"
+      attributeName="r"
+      attributeType="XML"
+      from="0"
+      to="50"
+      begin="a1.end"
+      dur="1s"
+      fill="freeze"
+    />
+  </circle>
+  <circle cx="200" cy="100" r="0" style="fill: #d7006f">
+    <animate
+      id="a3"
+      attributeName="r"
+      attributeType="XML"
+      from="0"
+      to="50"
+      begin="a2.end"
+      dur="1s"
+      fill="freeze"
+    />
+  </circle>
+</svg>
+</body>
+</html>

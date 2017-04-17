@@ -1,10 +1,6 @@
 # web-demo
 Demo project to do testing for web.
 
-## promise
-1. bootstrap
-
-
 ## JavaScript Style
 
 For `ESLint` check, update `.eslintrc` with your grammar
