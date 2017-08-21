@@ -52,5 +52,13 @@ describe('feature', () => {
     console.log('array test: ', endTime2.getTime());
 
   });
+
+  it('defineProperty', () => {
+    const testableClass = new TestableClass();
+    const propertyNames = Object.getOwnPropertyNames(testableClass);
+    console.log('Object.getOwnPropertyNames => ', propertyNames);
+    console.log('Object.keys => ', Object.keys(testableClass));
+    console.log('Object.keys => ', Object.getOwnPropertyNames(TestableClass));
+  });
 });
 

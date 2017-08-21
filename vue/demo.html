@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+  {{ message }}
+</div>
+
+<div id="app-2">
+  <span v-bind:title="message">
+    鼠标悬停此处几秒，
+    可以看到此处动态绑定的 title！
+  </span>
+</div>
+
+<div id="app-3">
+  <p v-if="seen">now you can see me</p>
+</div>
+
+<div id="app-4">
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+  </ol>
+</div>
+
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">reverse message</button>
+</div>
+
+<div id="app-6">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+
+<div id="app-7">
+  <ol>
+    <todo-item
+      v-for="item in grocerylist"
+      v-bind:todo="item"
+      v-bind:key="item.id"
+    ></todo-item>
+  </ol>
+</div>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!'
+    }
+  })
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: 'loading at ' + new Date()
+    }
+  })
+
+  var app3 = new Vue({
+    el: '#app-3',
+    data: {
+      seen: true
+    }
+  })
+
+  var app4 = new Vue({
+    el: '#app-4',
+    data: {
+      todos: [
+        { text: 'aaaa' },
+        { text: 'aaaa0' },
+        { text: 'aaaa1' },
+        { text: 'aaaa2' },
+        { text: 'aaaa3' },
+        { text: 'aaaa4' },
+        { text: 'aaaa' },
+      ]
+    }
+  })
+
+  var app5 = new Vue({
+    el: '#app-5',
+    data: {
+      message: 'Hello Vue.js!'
+    },
+    methods: {
+      reverseMessage: function () {
+        this.message = this.message.split('').reverse().join('')
+      }
+    }
+  })
+
+  var app6 = new Vue({
+    el: '#app-6',
+    data: {
+      message: 'Hello Vue.js!'
+    }
+  })
+
+  Vue.component('todo-item', {
+    props: ['todo'],
+    template: '<li>{{ todo.text }}</li>'
+  })
+
+  var app7 = new Vue({
+    el: '#app-7',
+    data: {
+      grocerylist: [
+        { id: 0, text: 'text1' },
+        { id: 0, text: 'text2' },
+        { id: 0, text: 'text3' },
+        { id: 0, text: 'text4' }
+      ]
+    }
+  })
+
+</script>
+</body>
+</html>
