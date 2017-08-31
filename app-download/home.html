@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>xxx</title>
+    <link rel="icon" href="xxx">
+    <link rel="stylesheet" href="phone.css">
+</head>
+<body>
+<div class="main">
+    <!--标题-->
+    <div class="banner">
+
+    </div>
+    <div>
+        <img src="xxx" class="width-all" alt="info">
+    </div>
+    <div>
+        <img src="xxx" class="width-all" alt="things">
+    </div>
+    <div class="footer">
+        <a class="btn" href="javascript:;" onclick="downloadApp()">点击下载APP</a>
+        <p class="content-padding">xxx</p>
+    </div>
+</div>
+<div id="footer-btn" class="footer-btn" onclick="downloadApp()">
+    <div>点击下载APP</div>
+</div>
+<div class="layer hide">
+    <div class="wei-size">
+        <img src="xxx" class="icon" alt="click">
+        <span class="share">点击右上角</span>
+    </div>
+    <div class="brow">
+        <p class="brow-open">在浏览器中打开</p>
+    </div>
+</div>
+<script type="text/javascript">
+    /*鉴于有些低版本的浏览器暂不支持vw单位，以下计算为了保障低版本浏览器也能获得vw一样的效果。*/
+    //    var body_width = document.documentElement.clientWidth;//获得浏览器可视宽度
+    document.documentElement.style.fontSize = window.innerWidth / 3.75 + 'px';
+
+    function is_weixn() {
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (is_weixn()) {
+        document.onscroll = function () {
+            var top = document.body.scrollTop;
+            var scrollBottom = document.body.clientHeight - window.screen.height - 50;
+            if (top >= scrollBottom) {
+//                document.getElementById("footer-btn").style.display = "none";
+                document.getElementById("footer-btn").style.visibility = 'hidden';
+            } else {
+                document.getElementById("footer-btn").style.visibility = "visible";
+//                document.getElementById("footer-btn").style.display = "block";
+            }
+        }
+    }
+
+    var downloadApp = function () {
+        if (is_weixn()) {
+            //微信浏览器,提示用户再其他浏览器打开
+            document.querySelector(".layer").style.display = "block";
+        } else {
+            var u = navigator.userAgent;
+            if (u.indexOf('iPhone') > -1) {
+                location.assign('itms-apps://itunes.apple.com/app/xxx')
+            } else if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+                location.assign('xxx.apk')
+            }
+        }
+    }
+    document.querySelector(".layer").onclick = function () {
+        this.style.display = "none";
+    }
+    function is() {
+        if (navigator.userAgent.toLowerCase().indexOf('uc') > -1) {
+            document.getElementById('banner-content').style.top = '0.3rem'
+        }
+    }
+    is();
+</script>
+</body>
+</html>
