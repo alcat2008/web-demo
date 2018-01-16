@@ -27,5 +27,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ge_yangyang@126.com",
-  "pre-commit": []
+  "pre-commit": [],
+  "main": "index.js",
+  "repository": "https://github.com/alcat2008/web-demo.git",
+  "license": "MIT"
 }

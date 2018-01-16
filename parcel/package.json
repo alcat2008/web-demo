@@ -1,0 +1,13 @@
+{
+  "name": "parcel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel origin.html",
+    "build": "NODE_ENV=production parcel build origin.html --out-dir build/ --public-url ./ && NODE_ENV=production parcel build world.html --out-dir build/ --public-url ./"
+  },
+  "author": "",
+  "license": "ISC"
+}
