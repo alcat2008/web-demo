@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Demo project to do testing for web.",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "nightmare": "file:nightmare"
+  },
   "devDependencies": {
     "babel-core": "^6.10.4",
     "babel-eslint": "^5.0.0",
