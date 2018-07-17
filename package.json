@@ -17,6 +17,7 @@
     "eslint-config-airbnb": "^9.0.1",
     "eslint-config-airbnb-base": "^3.0.1",
     "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-html": "^4.0.5",
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.4.2",
     "eslint-plugin-react": "^5.1.1",
@@ -29,7 +30,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ge_yangyang@126.com",
-  "pre-commit": [],
+  "pre-commit": [
+    "lint"
+  ],
   "main": "index.js",
   "repository": "https://github.com/alcat2008/web-demo.git",
   "license": "MIT"
