@@ -1,0 +1,77 @@
+body {
+  background: #B7CBE8;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+.box {
+  width: 625px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-x {
+  position: relative;
+  padding: 52.24% 50%;
+}
+
+.image-x > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.shop-cart {
+  width: 283px;
+  height: 25px;
+  line-height: 25px;
+  padding-top: 8px;
+  background: url(./shopping-cart.png);
+  font-family: 'microsoft yahei';
+  font-size: 12px;
+  text-indent: 34px;
+  color: #000;
+  position: fixed;
+  right: 10px;
+  bottom: 0;
+}
+
+.btn-cart {
+  position: absolute;
+  width: 22.72%;
+  height: 7.04441%;
+  left: 15.84%;
+  top: 84.8392%;
+  text-indent: -99em;
+  overflow: hidden;
+}
+
+.btn-cart:hover {
+  background-color: rgba(221, 46, 59, .1);
+}
+
+.fly-item,
+.fly-item > img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transition: transform .5s;
+}
+
+.fly-item {
+  display: none;
+  margin: -25px 0 0 -25px;
+  transition-timing-function: linear;
+  opacity: .5;
+}
+
+.fly-item > img {
+  transition-timing-function: cubic-bezier(.55, 0, .85, .36);
+  outline: 1px solid rgb(221, 46, 59);
+}
