@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>D3 Planet</title>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//d3js.org/topojson.v1.min.js"></script>
+  <style>
+    body,
+    html {
+      text-align: center;
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+
+    .planet-options {
+      position: absolute;
+      left: 10px;
+      top: 50px;
+      width: 100px;
+    }
+
+    .planet-options button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="planet-options">
+    <button onclick="startAutoRotate()">开始旋转</button>
+    <button onclick="stopAutoRotate()">暂停旋转</button>
+    <button onclick="rotateCenter()">定位到中国</button>
+    <button onclick="scaleTo(1000)">放大到1000</button>
+    <button onclick="scaleTo(5000)">放大到5000</button>
+    <button onclick="scaleTo()">缩放重置</button>
+  </div>
+
+  <script src="./planet.js"></script>
+</body>
+</html>
