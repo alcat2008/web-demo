@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,height=device-height">
+  <title>词云</title>
+  <style>::-webkit-scrollbar {
+    display: none;
+  }
+
+  html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+  }</style>
+</head>
+<body>
+<div id="mountNode"></div>
+<script>/*Fixing iframe window.innerHeight 0 issue in Safari*/
+document.body.clientHeight;</script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.2.7/dist/g2.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.8.9/dist/data-set.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/assets/lib/jquery-3.2.1.min.js"></script>
+<script src="https://gw.alipayobjects.com/os/antv/assets/lib/lodash-4.17.4.min.js"></script>
+<script>
+  function getTextAttrs(cfg) {
+    return _.assign({}, {
+      fillOpacity: cfg.opacity,
+      fontSize: cfg.origin._origin.size,
+      rotate: cfg.origin._origin.rotate,
+      text: cfg.origin._origin.text,
+      textAlign: 'center',
+      fontFamily: cfg.origin._origin.font,
+      fill: cfg.color,
+      textBaseline: 'Alphabetic'
+    }, cfg.style);
+  }
+
+  // 给point注册一个词云的shape
+  G2.Shape.registerShape('point', 'cloud', {
+    drawShape: function drawShape(cfg, container) {
+      var attrs = getTextAttrs(cfg);
+      return container.addShape('text', {
+        attrs: _.assign(attrs, {
+          x: cfg.x,
+          y: cfg.y
+        })
+      });
+    }
+  });
+
+
+  var data = [
+    { "x": "React", "value": 5000, "category": "react" },
+    { "x": "redux", "value": 1000, "category": "react" },
+    { "x": "react-router", "value": 1000, "category": "react" },
+    { "x": "react-redux", "value": 1000, "category": "react" },
+    { "x": "redux-saga", "value": 1000, "category": "react" },
+    { "x": "redux-promise", "value": 1000, "category": "react" },
+    { "x": "redux-thunk", "value": 1000, "category": "react" },
+    { "x": "redux-actions", "value": 1000, "category": "react" },
+
+    { "x": "JavaScript", "value": 5000, "category": "web" },
+    { "x": "ES6", "value": 1000, "category": "web" },
+    { "x": "Html", "value": 800, "category": "web" },
+    { "x": "CSS", "value": 800, "category": "web" },
+    { "x": "less", "value": 700, "category": "web" },
+    { "x": "前端", "value": 800, "category": "web" },
+    { "x": "H5", "value": 800, "category": "web" },
+    { "x": "组件化", "value": 800, "category": "web" },
+    { "x": "Node.js", "value": 800, "category": "node" },
+    { "x": "Koa2", "value": 800, "category": "node" },
+    { "x": "Express", "value": 800, "category": "node" },
+    { "x": "框架", "value": 800, "category": "web" },
+
+    { "x": "工程化", "value": 800, "category": "eng" },
+    { "x": "webpack", "value": 2000, "category": "eng" },
+    { "x": "rollup", "value": 800, "category": "eng" },
+    { "x": "parcel", "value": 800, "category": "eng" },
+    { "x": "gulp", "value": 800, "category": "eng" },
+    { "x": "grunt", "value": 800, "category": "eng" },
+    { "x": "module", "value": 800, "category": "eng" },
+    { "x": "source-map", "value": 800, "category": "eng" },
+    { "x": "babel", "value": 800, "category": "eng" },
+    { "x": "eslint", "value": 800, "category": "eng" },
+    { "x": "stylelint", "value": 800, "category": "eng" },
+    { "x": "bundle", "value": 800, "category": "eng" },
+    { "x": "analyzer", "value": 800, "category": "eng" },
+
+    { "x": "Web", "value": 800, "category": "web" },
+    { "x": "Electron", "value": 800, "category": "other" },
+    { "x": "Vue", "value": 800, "category": "other" },
+    { "x": "AngularJS", "value": 700, "category": "other" },
+    { "x": "jQuery", "value": 700, "category": "other" },
+    { "x": "Bootstrap", "value": 700, "category": "other" },
+    { "x": "ant.design", "value": 700, "category": "react" },
+    { "x": "antv", "value": 600, "category": "web" },
+
+    { "x": "React Native", "value": 500, "category": "app" },
+    { "x": "移动端", "value": 500, "category": "app" },
+    { "x": "IOS", "value": 600, "category": "app" },
+    { "x": "Android", "value": 600, "category": "app" },
+    { "x": "渗透测试", "value": 500, "category": "sec" },
+    { "x": "Web 安全", "value": 500, "category": "sec" },
+    { "x": "Nessus", "value": 500, "category": "sec" },
+    { "x": "AppScan", "value": 500, "category": "sec" },
+    { "x": "Kali Linux", "value": 500, "category": "sec" },
+
+
+
+    { "x": "面向对象", "value": 300, "category": "java" },
+
+
+
+    { "x": "java", "value": 500, "category": "java" },
+
+
+
+
+    { "x": "虚拟化", "value": 500, "category": "ops" },
+    { "x": "Linux", "value": 500, "category": "ops" }
+  ];
+
+  var dv = new DataSet.View().source(data);
+  var range = dv.range('value');
+  var min = range[0];
+  var max = range[1];
+  dv.transform({
+    type: 'tag-cloud',
+    fields: ['x', 'value'],
+    size: [window.innerWidth, window.innerHeight],
+    font: 'Verdana',
+    padding: 0,
+    timeInterval: 5000, // max execute time
+    rotate: function rotate() {
+      var random = ~~(Math.random() * 4) % 4;
+      if (random == 2) {
+        random = 0;
+      }
+      return random * 90; // 0, 90, 270
+    },
+    fontSize: function fontSize(d) {
+      if (d.value) {
+        return (d.value - min) / (max - min) * (80 - 24) + 24;
+      }
+      return 0;
+    }
+  });
+  var chart = new G2.Chart({
+    container: 'mountNode',
+    width: window.innerWidth,
+    height: window.innerHeight,
+    padding: 0
+  });
+  chart.source(dv, {
+    x: {
+      nice: false
+    },
+    y: {
+      nice: false
+    }
+  });
+  chart.legend(false);
+  chart.axis(false);
+  chart.tooltip({
+    showTitle: false
+  });
+  chart.coord().reflect();
+  chart.point().position('x*y').color('category').shape('cloud').tooltip('value*category');
+  chart.render();
+
+</script>
+</body>
+</html>
